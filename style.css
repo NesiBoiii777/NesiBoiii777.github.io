@@ -1,0 +1,40 @@
+.card {
+    height: 100%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    background-image: url('Logo.png');  
+}
+
+.banner {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+.btn {
+    margin-top: auto;
+    background-color: rgba(0, 140, 255, 0.356);
+    color: black;
+}
+
+
