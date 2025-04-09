@@ -1,116 +1,91 @@
-.banner {
-    color: aliceblue;
-    text-align: left;
-    background-color: maroon;
-    padding: 20px;
-    font-size: 65px;
-    font-weight: 700;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-}
-
-.body {}
-
 .card {
-    width: 250px;
-    height: 350px;
-}
-
-.card-img-container {
-    position: relative;
-}
-
-
-.card-img-top {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-
-.hover-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.card:hover .hover-image {
-    opacity: 1;
-}
-
-.card:hover .default-image {
-    opacity: 0;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    transition-duration: 0.6s;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.dim-on-hover {
-    transition: filter 0.3s ease;
-}
-
-
-.dim-on-hover:hover {
-    filter: brightness(60%);
-}
-
-.round-image {
-    border-radius: 50%;
-    object-fit: cover;
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin: 0 auto;
-}
-
-.dim-on-hover {
-    transition: filter 0.3s ease;
-}
-
-.dim-on-hover:hover {
-    filter: brightness(0.7);
-}
-
-.name-container {
-    text-align: center;
-    margin-top: 10px;
-    color: rgb(0, 0, 0);
-
-}
-
-.profile-card {
-    text-align: center;
-
-}
-
-.tab-pane .card {
-
-}
-
-.image-container {
-    width: 100%;
-    height: 0;
-    padding-top: 100%;
-    position: relative;
-    overflow: hidden;
-
-}
-
-.round-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-    object-fit: cover;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    border-radius: 50%;
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
 
 
+body {
+    margin-bottom: 10px;
+    background-color: linear-gradient(to right, #007bff, #00c6ff);
+}
+
+.banner {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.btn {
+    margin-top: auto;
+    background-color: rgba(0, 140, 255, 0.356);
+    color: black;
+}
+
+.video-container {
+    transition: filter 0.3s ease;
+}
+
+.video-container:hover {
+    filter: brightness(0.3);
+}.custom-card {
+    position: relative;
+    width: 18rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: transform 0.4s ease;
+  }
+  
+  /* Zoom the whole card on hover */
+  .custom-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Wrapper for image to target it independently */
+  .card-img-wrapper {
+    overflow: hidden;
+  }
+  
+  /* Image style and dim on hover */
+  .card-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.4s ease;
+  }
+  
+  .custom-card:hover .card-img {
+    filter: brightness(50%);
+  }
+  
+  /* Overlay text styles */
+  .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 2;
+  }
+  
+  /* Show the text on hover */
+  .custom-card:hover .overlay-text {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  body {
+    background-color: #f0f8ff; /* Light Alice Blue color */
 }
