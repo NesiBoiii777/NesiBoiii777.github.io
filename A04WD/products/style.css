@@ -1,0 +1,49 @@
+.product-card {
+    background-color: #baebff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.feature-card {
+    background-color: #8d8d8d;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    color: aliceblue;
+}
+
+.banner {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.feature-card h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #ffffff;
+}
+
+body {
+    background-color: aliceblue;
+    /* Light Alice Blue color */
+}
