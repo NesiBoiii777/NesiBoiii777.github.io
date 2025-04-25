@@ -65,6 +65,7 @@
     .btn img {
       height: 30px;
     }
+
     .btn img:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
@@ -84,50 +85,60 @@
     </div>
   </div>
 
-  
+
   <div class="container my-3">
-    <h5 style="color: gray;" class="glry mt-4">All</h5>
+
+    <!-- FOOTER START -->
+    <div class="container-fluid py-4 rounded-5 px-5" id="footerShow"
+      style="background-color: #070049; color: white; display: block; ">
+      <div class="row align-items-center">
+        <div class="col">
+          <h4 class="mb-4">Media Types</h4>
+        </div>
+        <div class="col text-end">
+          <button onclick="showFooter()" class="btn btn-outline-light btn-sm rounded-5">Show More
+
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid py-4 rounded-5 px-5" id="footer"
+      style="background-color: #070049; color: white; display: none;">
+      <div class="row">
+        <div class="col">
+          <h4 class="mb-4">Media Types</h4>
+        </div>
+        <div class="col text-end">
+          <button onclick="hideFooter()" class="btn btn-outline-light btn-sm rounded-5">Hide
+            
+          </button>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="container text-center my-4">
+              <div class="btn-group flex-wrap" role="group" aria-label="Media Buttons">
+                <button type="button" class="btn btn-outline-primary m-2"> Screenshots</button>
+                <button type="button" class="btn btn-outline-danger m-2"> Videos</button>
+                <button type="button" class="btn btn-outline-success m-2"> Downloads</button>
+                <button type="button" class="btn btn-outline-warning m-2"> Selfies</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER END -->
+    <h5 style="color: gray;" class="glry mt-4">
+      All
+    </h5>
     <div class="row" id="gallery">
     </div>
   </div>
 
-  <!-- FOOTER START -->
-  <div class="container-fluid py-4" id="footerShow" style="background-color: #070049; color: white; display: block;">
-    <div class="row align-items-center">
-      <div class="col">
-        <h4 class="mb-4">Media Types</h4>
-      </div>
-      <div class="col text-end">
-        <button onclick="showFooter()" class="btn btn-outline-light btn-sm">Show More</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="container-fluid py-4" id="footer" style="background-color: #070049; color: white; display: none;">
-    <div class="row">
-      <div class="col">
-        <h4 class="mb-4">Media Types</h4>
-      </div>
-      <div class="col text-end">
-        <button onclick="hideFooter()" class="btn btn-outline-light btn-sm">Hide</button>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="container text-center my-4">
-            <div class="btn-group flex-wrap" role="group" aria-label="Media Buttons">
-              <button type="button" class="btn btn-outline-primary m-2"> Screenshots</button>
-              <button type="button" class="btn btn-outline-danger m-2"> Videos</button>
-              <button type="button" class="btn btn-outline-success m-2"> Downloads</button>
-              <button type="button" class="btn btn-outline-warning m-2"> Selfies</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER END -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
