@@ -42,16 +42,27 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
         
-   <script>
-    var titles = ["1", "2", "3", "4", "5", "6", "7" ,"8"];
-var pictures = ["luffy.jpg", "zoro.jpg", "sanji.jpg", "nami.jpg", "robin.jpg", "chopper.jpg", "franky.jpg", "usopp.jpg" ];
-var contents = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test7" , "Test 8"];
+    <script>
+        var titles = ["1", "2", "3", "4", "5", "6", "7", "8"];
+        var pictures = ["luffy.jpg", "zoro.jpg", "sanji.jpg", "nami.jpg", "robin.jpg", "chopper.jpg", "franky.jpg", "usopp.jpg"];
+        var contents = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test7", "Test 8"];
 
-var rowElement = document.getElementById("gallery");
-for (var i = 0; i < titles.length; i++) {
-    rowElement.innerHTML += '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container"><img src="img/vault/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image"></div></div></div>';
-}
-   </script>
+        var rowElement = document.getElementById("gallery");
+
+        function handleMouseOver(event) {
+            event.target.style.transform = 'scale(1.05)';
+            event.target.style.transition = 'transform 0.3s ease';
+        }
+
+        function handleMouseOut(event) {
+            event.target.style.transform = 'scale(1)';
+            event.target.style.transition = 'transform 0.3s ease';
+        }
+
+        for (var i = 0; i < titles.length; i++) {
+            rowElement.innerHTML += '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container"><img src="img/vault/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)"></div></div></div>';
+        }
+    </script>
 </body>
 
 </html>
