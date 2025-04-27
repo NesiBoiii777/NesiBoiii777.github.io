@@ -73,6 +73,9 @@
     }
   }
 
+  body {
+    background-color: #eef0ff;
+  }
 </style>
 
 <body>
@@ -119,9 +122,11 @@
             <div class="container text-center my-4">
               <div class="btn-group flex-wrap" role="group" aria-label="Media Buttons">
                 <a href="gallery.html"><button type="button" class="btn btn-outline-primary m-2"> All</button></a>
-                <a href="videos.html"><button type="button" class="btn btn-outline-danger m-2"> Videos</button></a>
-                <a href="downloads.html"><button type="button" class="btn btn-outline-success m-2"> Downloads</button></a>
-                <a href="screenshots.html"><button type="button" class="btn btn-outline-warning m-2"> Screenshots</button></a>
+                <a href="selfies.html"><button type="button" class="btn btn-outline-danger m-2"> Selfies</button></a>
+                <a href="downloads.html"><button type="button" class="btn btn-outline-success m-2">
+                    Downloads</button></a>
+                <a href="screenshots.html"><button type="button" class="btn btn-outline-warning m-2">
+                    Screenshots</button></a>
               </div>
             </div>
           </div>
@@ -131,7 +136,13 @@
     </div>
 
     <!-- FOOTER END -->
-   
+
+    <div class="row">
+      <div class="col d-flex justify-content-center m-5 fw-bold">
+        <h3 style="color: gray;"> No Videos</h3>
+      </div>
+    </div>
+
     <div class="row" id="gallery">
     </div>
   </div>
@@ -142,13 +153,13 @@
     crossorigin="anonymous"></script>
 
   <script>
-    var titles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-    var pictures = ["sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "sample.jpg", "key.png"];
-    var contents = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8"];
+    var titles = [];
+    var pictures = [];
+    var contents = [];
 
     var rowElement = document.getElementById("gallery");
     for (var i = 0; i < titles.length; i++) {
-      var cardHTML = '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container"><img src="img/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)"></div></div></div>';
+      var cardHTML = '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container">img src="img/mediaTypes/img/videos/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)"></div></div></div>';
       rowElement.innerHTML += cardHTML;
     }
 
