@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+   <link rel="icon" href="../img/Esi.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valorant Arsenal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f1923;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .picture-container {
+      width: 120px;
+      height: 120px;
+      background-color: #1f2a35;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .picture-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .card {
+      background-color: #1f2a35;
+      color: white;
+      border: none;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #ff4655;
+    }
+
+    .card .type {
+      background-color: #ff4655;
+      color: white;
+      font-weight: bold;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    .search-bar {
+      background-color: #1f2a35;
+      color: white;
+      border: 1px solid #ff4655;
+    }
+
+    .search-bar:focus {
+      box-shadow: 0 0 0 0.2rem rgba(255, 70, 85, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid py-3" style="background-color: #ff4655;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h3 class="text-white">Valorant Arsenal</h3>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <a href="API.html"><button type="button" class="btn btn-outline-dark">Home</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <input type="text" id="searchBar" class="form-control mb-4 search-bar" placeholder="Search for a weapon...">
+  </div>
+
+  <!-- Card Container -->
+  <div class="container">
+    <div class="row" id="container">
+    </div>
+  </div>
+
+  <script>
+    let allWeapons = [];
+
+    const loadWeapons = async () => {
+      const res = await fetch('https://valorant-api.com/v1/weapons');
+      const data = await res.json();
+      allWeapons = data.data;
+
+      renderWeapons(allWeapons);
+    };
+
+    const renderWeapons = (weapons) => {
+      const container = document.getElementById('container');
+      container.innerHTML = '';
+
+      weapons.forEach((weapon, index) => {
+        const name = weapon.displayName;
+        const icon = weapon.displayIcon;
+        const category = weapon.shopData?.categoryText || "Misc";
+        const audio = weapon.media?.[0]?.wave;
+
+        container.innerHTML += `
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card my-3 text-center p-4 rounded-4 shadow">
+              <div class="picture-container mx-auto mb-3">
+                <img src="${icon}" alt="${name}">
+              </div>
+              <div class="h5">${name}</div>
+              <div class="card type rounded-5 p-1 mt-2 mb-3">${category}</div>
+              ${audio ? `<button class="btn btn-sm btn-danger" onclick="playSound('${audio}')">Play Sound</button>` : `<div class="text-muted small">No sound available</div>`}
+            </div>
+          </div>
+        `;
+      });
+    };
+
+    const playSound = (url) => {
+      const audio = new Audio(url);
+      audio.play();
+    };
+
+    document.getElementById('searchBar').addEventListener('input', function () {
+      const searchTerm = this.value.toLowerCase();
+      const filteredWeapons = allWeapons.filter(weapon =>
+        weapon.displayName.toLowerCase().includes(searchTerm)
+      );
+      renderWeapons(filteredWeapons);
+    });
+
+    loadWeapons();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

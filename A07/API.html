@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../img/Esi.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valorant Central</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f1923;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url(vlrntBG.jpg);
+    }
+
+    .card {
+      background-color: #1f2a35;
+      color: white;
+      border: none;
+      transition: transform 0.3s;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* pushes content to top and bottom */
+      padding: 2rem;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #ff4655;
+    }
+
+    .btn-primary {
+      background-color: #ff4655;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff2a45;
+    }
+
+    .banner {
+      padding: 5rem 1rem;
+      text-align: center;
+      background: linear-gradient(to right, #1f2a35, #0f1923);
+    }
+
+    .banner h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .banner p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <div class="banner">
+    <h1>Valorant Central</h1>
+    <p>Browse your arsenal. Explore your roster. Dominate the game.</p>
+  </div>
+
+  <!-- Main Navigation Cards -->
+  <div class="container py-5">
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card text-center p-4 rounded-4 shadow">
+          <h4>Weapon Arsenal</h4>
+          <p>Master the arsenal. From pinpoint pistols to game-changing ultimates, find the firepower to dominate in
+            Valorant.</p>
+          <a href="weapons.html" class="btn btn-primary mt-2">View Weapons</a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card text-center p-4 rounded-4 shadow">
+          <h4>Flex Items</h4>
+          <p>Beyond skins and sprays, there's Flex. Express yourself in a whole new way during those downtime moments.
+          </p>
+          <a href="flex.html" class="btn btn-primary mt-2">View Flex Items</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="exit d-flex justify-content-center">
+    <a href="../index.html"> <button type="button" class="btn btn-outline-danger">Home</button></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
