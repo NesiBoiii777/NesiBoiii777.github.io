@@ -8,60 +8,67 @@
   <title>Valorant Arsenal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
+  <!-- Header -->
   <div class="container-fluid py-3" style="background-color: #ff4655;">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <h3 class="text-white">Valorant Arsenal</h3>
-        </div>
-        <div class="col d-flex justify-content-end">
-          <a href="API.html"><button type="button" class="btn btn-outline-dark">Go Back</button></a>
-        </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="text-white">Valorant Arsenal</h3>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <a href="API.html">
+          <button type="button" class="btn btn-outline-dark">Go Back</button>
+        </a>
       </div>
     </div>
   </div>
 
+  <!-- Search Bar -->
   <div class="container mt-4">
     <input type="text" id="searchBar" class="form-control mb-4 search-bar" placeholder="Search for a weapon...">
   </div>
 
-
+  <!-- Weapon Cards -->
   <div class="container">
     <div class="row" id="container">
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     let allWeapons = [];
 
     const loadWeapons = async () => {
-      const res = await fetch('https://valorant-api.com/v1/weapons');
-      const data = await res.json();
-      allWeapons = data.data;
-
-      renderWeapons(allWeapons);
+      try {
+        const res = await fetch('https://valorant-api.com/v1/weapons');
+        const data = await res.json();
+        allWeapons = data.data;
+        renderWeapons(allWeapons);
+      } catch (error) {
+        console.error("Failed to load weapons:", error);
+        document.getElementById('container').innerHTML = `
+          <div class="text-danger text-center">Failed to load weapons. Please try again later.</div>
+        `;
+      }
     };
 
     const renderWeapons = (weapons) => {
       const container = document.getElementById('container');
       container.innerHTML = '';
 
-      weapons.forEach((weapon, index) => {
+      weapons.forEach((weapon) => {
         const name = weapon.displayName;
         const icon = weapon.displayIcon;
         const category = weapon.shopData?.categoryText || "Misc";
-        const audio = weapon.media?.[0]?.wave;
 
         container.innerHTML += `
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card my-3 text-center p-4 rounded-4 shadow">
               <div class="picture-container mx-auto mb-3">
-                <img src="${icon}" alt="${name}">
+                <img src="${icon}" alt="${name}" class="img-fluid">
               </div>
               <div class="h5">${name}</div>
               <div class="card type rounded-5 p-1 mt-2 mb-3">${category}</div>
@@ -71,7 +78,6 @@
         `;
       });
     };
-
 
     document.getElementById('searchBar').addEventListener('input', function () {
       const searchTerm = this.value.toLowerCase();
