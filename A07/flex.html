@@ -8,24 +8,25 @@
   <title>Valorant Flex</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-
-
   <div class="container-fluid py-3" style="background-color: #ff4655;">
-    <div class="d-flex justify-content-between align-items-center px-3">
-      <h3 class="text-white mb-0">Valorant Flex</h3>
-      <a href="API.html" class="btn btn-outline-dark">Go Back</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h3 class="text-white">Valorant Flex</h3>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <a href="API.html"><button type="button" class="btn btn-outline-dark">Go Back</button></a>
+        </div>
+      </div>
     </div>
   </div>
 
-
   <div class="container mt-4">
-    <input type="text" id="searchBar" class="form-control mb-4 search-bar" placeholder="Search for a flex item ...">
+    <input type="text" id="searchBar" class="form-control mb-4 search-bar" placeholder="Search for a flex item...">
   </div>
-
 
   <div class="container">
     <div class="row" id="container"></div>
@@ -35,39 +36,39 @@
     let allFlex = [];
 
     const loadFlex = async () => {
-      const res = await fetch('https://valorant-api.com/v1/flex');
-      const data = await res.json();
-      allFlex = data.data;
-      renderFlex(allFlex);
+      try {
+        const res = await fetch('https://valorant-api.com/v1/flex');
+        const data = await res.json();
+        allFlex = data.data;
+        renderFlex(allFlex);
+      } catch (error) {
+        console.error("Error loading Flex data:", error);
+      }
     };
 
     const renderFlex = (items) => {
       const container = document.getElementById('container');
       container.innerHTML = '';
 
-      items.forEach((item, index) => {
+      items.forEach((item) => {
         const name = item.displayName || "Unknown";
         const icon = item.displayIcon || "";
-        const role = item.description || "No description";
+        const role = item.description || "Flex";
         const audio = item.media?.[0]?.wave;
 
         container.innerHTML += `
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card my-3 text-center p-4 rounded-4 shadow">
               <div class="picture-container mx-auto mb-3">
-                <img src="${icon}" alt="${name}">
+                <img src="${icon}" alt="${name}" class="img-fluid">
               </div>
               <div class="h5">${name}</div>
               <div class="card type rounded-5 p-1 mt-2 mb-3">${role}</div>
-              ${audio ? `<button class="btn btn-sm btn-danger" onclick="playSound('${audio}')">Play Sound</button>` : `<div class="text-muted small">No sound available</div>`}
+              <a href="viewflex.html?flex=${encodeURIComponent(name)}" class="btn btn-outline-secondary rounded-5 btn-sm">View Flex</a>
             </div>
           </div>
         `;
       });
-    };
-
-    const playSound = (url) => {
-      new Audio(url).play();
     };
 
     document.getElementById('searchBar').addEventListener('input', function () {
