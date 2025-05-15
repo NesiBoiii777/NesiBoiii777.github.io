@@ -22,18 +22,18 @@
             background-color: #3b4d9e8a;
         }
     }
-    body{
-    background-color: 	#eef0ff;
-  }
 </style>
 
-<body>
+<body id="body">
     <div class="banner p-3 shadow">
         <div class="row">
             <div class="col">
                 <a href="password.html"><button type="button" class="btn">⟵</button></a>
             </div>
             <div class="col d-flex justify-content-end mx-3">
+                 <button id="colorBtn" onclick="changeMode()" class="ms-4 px-3 py-2 btn btn-dark mx-3">
+                Dark Mode
+              </button>
                 <h2>Vault</h2>
             </div>
         </div>
@@ -67,6 +67,7 @@
             rowElement.innerHTML += '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container"><img src="img/vault/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)"></div></div></div>';
         }
     </script>
+     <script src="script.js"></script>
 </body>
 
 </html>

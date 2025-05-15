@@ -73,18 +73,19 @@
     }
   }
 
-  body {
-    background-color: #eef0ff;
-  }
+
 </style>
 
-<body>
+<body id="body">
   <div class="banner p-3 shadow" style="background-color: #070049; color: azure;">
     <div class="row">
       <div class="col">
         <h2>Screenshots</h2>
       </div>
       <div class="col d-flex justify-content-end">
+          <button id="colorBtn" onclick="changeMode()" class="ms-4 px-3 py-2 btn btn-dark">
+                Dark Mode
+              </button>
         <a href="password.html"><button type="button" class="btn"><img src="img/spy.png" alt=""></button></a>
       </div>
     </div>
@@ -154,9 +155,11 @@
     for (var i = 0; i < titles.length; i++) {
       var cardHTML = '<div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="card my-3 shadow rounded overflow-hidden border-0"><div class="zoom-container"><img src="img/mediaTypes/img/screenshots/' + pictures[i] + '" class="card-img-top zoom-img fixed-img" alt="Image" onmouseover="handleMouseOver(event)" onmouseout="handleMouseOut(event)"></div></div></div>';
       rowElement.innerHTML += cardHTML;
+      
     }
 
   </script>
+ <script src="script.js"></script>
 </body>
 
 </html>
